@@ -1,0 +1,117 @@
+﻿<Window x:Class="CookieClickerWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CookieClickerWPF"
+        mc:Ignorable="d"
+        Title="CookieClicker" Height="650" Width="900">
+    <StackPanel>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                
+                <Image Source="img/cookies_30px.png" Height="30" Margin="10 0" />
+                <TextBlock Text="0" Name="counter_txt" TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="SandyBrown" FontSize="32" />
+            </StackPanel>
+            <Button Margin="0 25" Width="200" Height="200" Background="White" BorderThickness="0" Click="Cookie_Click">
+                <Image Source="img/cookie.png" />
+            </Button>
+        </StackPanel>
+        
+        <StackPanel>
+            <Separator Background="Brown" />
+            <TextBlock Text="СПОСОБНОСТИ"  TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="SandyBrown"  FontSize="24" />
+            <Separator Background="Brown" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <StackPanel>
+                    <Button Width="50" Name="x2_btn" Click="DoubleCookie" ToolTip="Удвоитель - удваивает количество печенек за клик" Margin="10 10 10 0" Background="#fff" BorderThickness="0">
+                        <Image  Source="img/x2.png" />
+                    </Button>
+                    <TextBlock Name="d_cookie_cost_UI" TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="SandyBrown" FontWeight="Bold" FontSize="18" />
+                </StackPanel>
+
+                <StackPanel>
+                    <Button Width="50" Name="luccky_btn" Click="Lucky" Margin="10 10 10 0" Background="#fff" BorderThickness="0">
+                        <Image  Source="img/clover.png" />
+                        <Button.ToolTip>
+                            <TextBlock>
+                                Способность 'Удачливый' - Шанс получить +100 печенек за клик <LineBreak/>
+                                Базовый шанс 1% можно улучшить до 10% и +200 печенек за клик
+                            </TextBlock>
+                        </Button.ToolTip>
+                    </Button>
+                    <TextBlock Name="lucky_cost_UI" TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="SandyBrown" FontWeight="Bold" FontSize="18" />
+                </StackPanel>
+
+                <StackPanel>
+                    <Button Width="50" Name="lottery_btn" Click="Lottery" ToolTip="Лотерея - 10% шанс получить 1000 печенек (Можно улучшить до 20%)" Margin="10 10 10 0" Background="#fff" BorderThickness="0">
+                        <Image  Source="img/bones.png" />
+                    </Button>
+                    <TextBlock Name="lottery_cost_UI" TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="SandyBrown" FontWeight="Bold" FontSize="18" />
+                </StackPanel>
+
+            </StackPanel>
+              
+        </StackPanel>
+
+        <StackPanel>
+            <Separator Background="Brown" />
+            <TextBlock Text="УЛУЧШЕНИЯ"  TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="SandyBrown"  FontSize="24" />
+            <Separator Background="Brown" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel>
+                    <Button Width="50" x:Name="enhancer_btn" Click="ChanceEnhancer" Margin="10 10 10 -8" Background="#fff" BorderThickness="0">
+                        <Image  Source="img/p_man.png" />
+                        <Button.ToolTip>
+                            <TextBlock x:Name="enhancer_tooltip">
+                                Усилитель шанса 'Удачливый' - Повышает базовый шанс способности удачливый на 1%
+                            </TextBlock>
+                        </Button.ToolTip>
+                    </Button>
+                    <TextBlock Name="enhancer_cost_UI" TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="SandyBrown" FontWeight="Bold" FontSize="18" />
+                </StackPanel>
+
+                <StackPanel>
+                    <Button Width="50" x:Name="lucky_add_btn" Click="LuckyAddCookie" Margin="10 10 10 0" Background="#fff" BorderThickness="0">
+                        <Image  Source="img/plus2.png" />
+                        <Button.ToolTip>
+                            <TextBlock x:Name="lucky_add_tooltip">
+                               Усилитель эффекта 'Удачливый' - добавляет +10 печенек к базовому бонусу эффекта
+                        </TextBlock>
+                        </Button.ToolTip>
+                    </Button>
+                    <TextBlock x:Name="lucky_add_cost_UI" TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="SandyBrown" FontWeight="Bold" FontSize="18" />
+                </StackPanel>
+
+                <StackPanel>
+                    <Button Width="50" Name="bribe_btn" Click="I7oDkyI7" ToolTip="Подкуп - Улучшает на 1% шанс в лотерее" Margin="10 10 10 0" Background="#fff" BorderThickness="0">
+                        <Image Source="img/shutup_and_take_money.png" />
+                    </Button>
+                    <TextBlock Name="bribe_cost_UI" TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="SandyBrown" FontWeight="Bold" FontSize="18" />
+                </StackPanel>
+
+                <StackPanel>
+                    <Button x:Name="multipler_btn" Click="Multiplier"   Width="50" Margin="10 10 10 0" Background="#fff" BorderThickness="0" >
+                        <Image  Source="img/up.png" />
+                        <Button.ToolTip>
+                            <TextBlock x:Name="multiplier_tooltip">
+                                Множитель - Умножает количество получаемых печенек за клик <LineBreak />
+                                Уровень 1: умножает на 0-3 <LineBreak />
+                                Уровень 2: умножает на 0-4 <LineBreak />
+                                Уровень 3: умножает на 0-5
+                            </TextBlock>
+                        </Button.ToolTip>
+                    </Button>
+                    <TextBlock Name="multiplier_cost_UI" TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="SandyBrown" FontWeight="Bold" FontSize="18" />
+                </StackPanel>
+
+            </StackPanel>
+        </StackPanel>
+
+
+
+    </StackPanel>
+</Window>
